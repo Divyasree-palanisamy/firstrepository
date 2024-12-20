@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color:rgba(255, 255, 255, 0.767);
+                margin: 0;
+                padding: 0;
+            }
+    
+            .container {
+                background-color: pink;
+                width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            }
+    
+            h2 {
+                color: black;
+                text-align: center;
+            }
+    
+            label {
+                color: black;
+                display: block;
+                margin-bottom: 5px;
+            }
+    
+    
+            .error {
+                color: red;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" onblur="validateName()">
+                <span id = "name-error" class="error-text"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" onblur="validateEmail()">
+                <span id = "email-error" class="error-text"></span>
+            </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="button" onclick="submitForm()">Login</button>
+
+            
+
+        </form>
+       </div>
+       </body>
+       </html>

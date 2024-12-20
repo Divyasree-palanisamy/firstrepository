@@ -1,0 +1,84 @@
+<!-- templates/profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: burlywood;
+        }
+        .header {
+            background: olive;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-container {
+            max-width: 350px;
+            border: 3px solid #000;
+
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-username {
+            font-size: 24px;
+            color: #333;
+        }
+        .profile-email {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile-mobile_number {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: rosybrown;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #d32f2f;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/dashboard" class="back-button"><b>Back</b></a>
+</div>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Profile</h1>
+            <img src="/static/c13.jpg" width="90" height="90">
+
+        </div>       
+         <p class="profile-username">Username: {{ username }}</p>
+
+        <p class="profile-email">Email Id: {{ email }}</p>
+        <p class="profile-mobile_number">Mobile Number: {{ mobile_number }}</p>
+
+    </div>
+</body>
+</html>

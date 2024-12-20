@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Corner Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        #searchBar, #tagsInput {
+            padding: 10px;
+            width: 80%;
+            max-width: 600px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #photoGallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .photo {
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .photo img {
+            max-width: 100%;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        input[type="file"] {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Creative Corner Dashboard</h1>
+        <button onclick="showRecentPosts()">Recent Posts</button>
+        <input type="text" id="searchBar" placeholder="Search for craft ideas...">
+        <button onclick="searchPhotos()">Search</button>
+        <form id="uploadForm">
+            <input type="file" id="photoInput" accept="image/*" required>
+            <input type="text" id="tagsInput" placeholder="Enter tags separated by commas" required>
+            <button type="submit">Upload Photo</button>
+        </form>
+    </header>
+    <main id="photoGallery">
+        <!-- Photos will be displayed here -->
+    </main>
+    <script>
+        // Sample photo data (in a real application, this would come from a server or database)
+        const photos = [
+        { url: '/static/painting.jpg', tags: ['nature painting','admirable nature painting'] },
+        { url: '/static/girl.jpg', tags: ['nature painting','Amazing natural view'] },
+        { url: '/static/im1.jpg', tags: ['pencil art', 'Melody of nature—birdwatching in bloom'] },
+        { url: '/static/im2.jpg', tags: ['pencil art', 'Tom and Jerry'] },
+        { url: '/static/im3.jpg', tags: ['pencil art', 'sculptures'] },
+        { url: '/static/im4.jpg', tags: ['pencil art', 'Embracing the rain, finding beauty in every drop.'] },
+        { url: '/static/im5.jpg', tags: ['pencil art', 'Twin cute cats'] },
+        { url: '/static/im6.jpg', tags: ['pencil art', 'Flower decor'] },
+        { url: '/static/im7.jpg', tags: ['pencil art', 'Doves and flowers'] },
+        { url: '/static/im8.jpg', tags: ['pencil art', ' Vintage sculpture'] },
+        { url: '/static/im9.jpg', tags: ['woolen thread craft', 'peacock'] },
+        { url: '/static/im10.jpg', tags: ['colorpaper craft', 'cute bouquet'] }
+
+
+// Add more photos as needed
+        ];
+
+        function searchPhotos() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const gallery = document.getElementById('photoGallery');
+            gallery.innerHTML = ''; // Clear previous results
+
+            const filteredPhotos = photos.filter(photo =>
+                photo.tags.some(tag => tag.includes(query))
+            );
+
+            if (filteredPhotos.length > 0) {
+                filteredPhotos.forEach(photo => {
+                    const photoDiv = document.createElement('div');
+                    photoDiv.className = 'photo';
+                    photoDiv.innerHTML = `<img src="${photo.url}" alt="${photo.tags.join(', ')}"><p>${photo.tags.join(', ')}</p>`;
+                    gallery.appendChild(photoDiv);
+                });
+            } else {
+                gallery.innerHTML = '<p>No results found</p>';
+            }
+        }
+
+        function showRecentPosts() {
+            const gallery = document.getElementById('photoGallery');
+            gallery.innerHTML = ''; // Clear previous results
+
+            photos.forEach(photo => {
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'photo';
+                photoDiv.innerHTML = `<img src="${photo.url}" alt="${photo.tags.join(', ')}"><p>${photo.tags.join(', ')}</p>`;
+                gallery.appendChild(photoDiv);
+            });
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const photoInput = document.getElementById('photoInput');
+            const tagsInput = document.getElementById('tagsInput');
+            const gallery = document.getElementById('photoGallery');
+
+            if (photoInput.files && photoInput.files[0]) {
+                const fileReader = new FileReader();
+                fileReader.onload = function(e) {
+                    const newPhoto = {
+                        url: e.target.result,
+                        tags: tagsInput.value.split(',').map(tag => tag.trim())
+                    };
+                    photos.push(newPhoto);
+
+                    const photoDiv = document.createElement('div');
+                    photoDiv.className = 'photo';
+                    photoDiv.innerHTML = `<img src="${newPhoto.url}" alt="${newPhoto.tags.join(', ')}"><p>${newPhoto.tags.join(', ')}</p>`;
+                    gallery.appendChild(photoDiv);
+
+                    photoInput.value = '';
+                    tagsInput.value = '';
+                };
+                fileReader.readAsDataURL(photoInput.files[0]);
+            }
+        });
+
+        // Initially show recent posts
+        showRecentPosts();
+    </script>
+</body>
+</html>

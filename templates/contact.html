@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <style>
+        body {
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .header {
+            background: olive;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+        }
+        .contact-info {
+            background-color: khaki;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+        .contact-info h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .info-box {
+            background-color: whitesmoke;
+            border: 3px solid #000;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 18px;
+        }
+        .info-box .label {
+            color: #00796b;
+            font-weight: bold;
+        }
+        .info-box .value {
+            color: #004d40;
+            font-weight: bold;
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: rosybrown;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/dashboard" class="back-button"><b>Back</b></a>
+    </div>
+    <div class="container">
+        <div class="contact-info">
+            <h1>Connect with us through</h1>
+            <div class="info-box">
+                <p class="label">Email:</p>
+                <p class="value">creativecorner@gmail.com</p>
+                <img src="/static/c11.png" width="90" height="90">
+            </div>
+            <div class="info-box">
+                <p class="label">Phone:</p>
+                <p class="value">+733-967-8432</p>
+                <img src="/static/c12.png" width="90" height="90">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

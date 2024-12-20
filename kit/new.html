@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color:white;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .container {
+                background-color: pink;
+                width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            }
+    
+            h2 {
+                color: black;
+                text-align: center;
+            }
+    
+            label {
+                color: black;
+                display: block;
+                margin-bottom: 5px;
+            }
+    
+    
+            .error {
+                color: red;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" onblur="validateName()">
+                <span id = "name-error" class="error-text"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" onblur="validateEmail()">
+                <span id = "email-error" class="error-text"></span>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" onblur="validateDateOfBirth()">
+                <span id = "dob-error" class="error-text"></span>
+            </div>
+    <div class="form-group" id = "gender-div">
+        <label>Gender:</label>
+        <div>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label> 
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>       
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>       
+        </div>
+       <span id = "gender-error" class="error-text" onblur ="validateGender()"></span>
+    </div>
+    <div class="form-group">
+        <label for="course">Course of Study:</label>
+        <select id="course" name="course" onblur="validateCourse()">
+            <option value="">Select Course</option>
+            <option value="B.E">B.E</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="M.E">M.E</option>
+            <option value="M.Tech">M.Tech</option>
+        </select>
+
+        <span id ="course-error" class="error-text"></span>
+    </div>
+    <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department" name="department" onblur="validateDepartment()">
+            <option value="">Select Department</option>
+            <option value="CSE">CSE</option>
+            <option value="CSBS">CSBS</option>
+            <option value="AIDS">AIDS</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="BIOTECH">BIOTECH</option>
+            <option value="MECH">MECH</option>
+        </select>
+        <span id ="department-error" class="error-text"></span>
+    </div>
+    <div class="form-group">
+        <label for="semester">Current Semester:</label>
+        <input type="number" id="semester" name="semester" onblur="validateSemester()">
+        <span id = "semester-error" class="error-text"></span>
+
+    </div>
+    <button type="button" onclick="submitForm()">Submit Registration</button>
+ </form>
+</div>
+</body>
+</html>
